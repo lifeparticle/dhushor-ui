@@ -1,3 +1,3 @@
-# Dhushor
+Dhushor (ধূসর) is a web app for Medium writers. It will help to streamline the writing process, which will save time and increase efficiency.
 
-Dhushor (ধূসর)
+[App](https://dhushor.netlify.app/)
