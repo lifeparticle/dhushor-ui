@@ -1,5 +1,5 @@
 <p align="center">
-   <a href="https://github.com/lifeparticle/Ruby-Cheatsheet/issues">
+   <a href="https://github.com/lifeparticle/dhushor/issues">
       <img alt="contributions welcome" src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat"/>
    </a>
    <a href="https://app.netlify.com/sites/dhushor/deploys">
