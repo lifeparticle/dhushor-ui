@@ -5,7 +5,7 @@ import { ImageLoader } from "../components/ImageLoader/ImageLoader";
 const Home: React.FC = () => {
 	return (
 		<>
-			<Row>
+			<Row gutter={16}>
 				<CaseConverter />
 			</Row>
 			<Divider orientation="left" plain>
