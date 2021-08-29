@@ -1,3 +1,10 @@
+import { Col } from "antd";
+
 export const CaseConverter: React.FC = () => {
-	return <></>;
+	return (
+		<>
+			<Col span={20}>Caseinput</Col>
+			<Col span={4}>Caseinput</Col>
+		</>
+	);
 };

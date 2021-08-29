@@ -4,6 +4,7 @@ import { GoLogoGist } from "react-icons/go";
 export const NOOPENER_NOREFERRER = "noopener,noreferrer";
 export let links = [
 	{
+		key: "1",
 		title: "Gist Github",
 		description: "this description",
 		cover: GoLogoGist,
@@ -11,6 +12,7 @@ export let links = [
 		enable: true,
 	},
 	{
+		key: "2",
 		title: "ProWritingAid",
 		description: "this description",
 		cover: FaPen,
@@ -18,6 +20,7 @@ export let links = [
 		enable: true,
 	},
 	{
+		key: "3",
 		title: "Grammarly",
 		description: "this description",
 		cover: FaBook,
@@ -25,6 +28,7 @@ export let links = [
 		enable: true,
 	},
 	{
+		key: "4",
 		title: "Hemingway Editor",
 		description: "this description",
 		cover: FaEtsy,
@@ -32,6 +36,7 @@ export let links = [
 		enable: true,
 	},
 	{
+		key: "5",
 		title: "Carbon Now Sh",
 		description: "this description",
 		cover: FaCuttlefish,
