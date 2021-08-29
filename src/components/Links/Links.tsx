@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Space, Col } from "antd";
+import { Card, Col } from "antd";
 import { links } from "../../constants/constants";
 import Links from "./Links.module.css";
 import { openInNewTab } from "../../utils/utils";

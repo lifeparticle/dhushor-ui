@@ -1,4 +1,4 @@
-import { Col, Input, Button, Image } from "antd";
+import { Col, Input, Image } from "antd";
 
 export const ImageLoader: React.FC = () => {
 	return (
