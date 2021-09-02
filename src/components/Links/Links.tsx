@@ -16,10 +16,13 @@ export const AppLinks: React.FC = () => {
 								size="small"
 								className={Links.card}
 								hoverable
-								cover={<link.cover />}
+								cover={<link.cover style={{height:40}} />}
 								onClick={() => openInNewTab(link.link)}
 							>
-								<Meta title={link.title} description={link.description} />
+								<Meta
+								title={link.title} 
+								description={link.description}
+								style={{marginLeft: 40}} />
 							</Card>
 						</div>
 					</Col>
