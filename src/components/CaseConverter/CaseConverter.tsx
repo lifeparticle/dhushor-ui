@@ -43,9 +43,9 @@ export const CaseConverter: React.FC = () => {
 
 	const [options, setOptions] = useState<SelectProps<object>["options"]>([]);
 
-	const handleOutput = (e : React.ChangeEvent<HTMLInputElement>) => {
-		setValue(e.target.value)
-	}
+	const handleOutput = (e: React.ChangeEvent<HTMLInputElement>) => {
+		setValue(e.target.value);
+	};
 
 	const handleSearch = (value: string) => {
 		setOptions(value ? searchResult(value) : []);
@@ -57,32 +57,34 @@ export const CaseConverter: React.FC = () => {
 
 	return (
 		<>
-			<Col flex='auto'>
-				<Input
-				size="large"
-				allowClear
-				placeholder="Enter Your Title"
-				onChange={handleOutput}/>
+			<Col span={18}>
+				<Row>
+					<Input
+						size="large"
+						allowClear
+						placeholder="Enter Your Title"
+						onChange={handleOutput}
+					/>
+				</Row>
+				<Row>
+					<Input size="large" placeholder="Output" value={value} />
+				</Row>
 
-				<Input
-				size="large"
-				placeholder="Output"
-				value={value} />
-				
-				<Button
-					type="primary"
-					shape="round"
-					icon={<CopyOutlined />}
-					size="large"
-				>
-					Copy To Clipboard
-				</Button>
+				<Row>
+					<Button
+						type="primary"
+						shape="round"
+						icon={<CopyOutlined />}
+						size="large"
+					>
+						Copy To Clipboard
+					</Button>
+				</Row>
 			</Col>
-			
-			<Col flex='400px' >
+
+			<Col span={6}>
 				<AutoComplete
-					// dropdownMatchSelectWidth={252}
-					// style={{ width: 300 }}
+					style={{ width: "-webkit-fill-available" }}
 					options={options}
 					onSelect={onSelect}
 					onSearch={handleSearch}

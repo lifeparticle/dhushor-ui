@@ -44,3 +44,9 @@ export let links = [
 		enable: true,
 	},
 ];
+
+export const ROUTING_URLS = {
+	home: "/home",
+	about: "/about",
+	all: "*",
+};
