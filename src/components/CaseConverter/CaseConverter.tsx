@@ -1,11 +1,12 @@
 import { useState } from "react";
-import { Col, Input, AutoComplete, Tag, Button } from "antd";
+import { Col, Input, AutoComplete, Tag, Button, Space, Row } from "antd";
 import { SelectProps } from "antd/es/select";
 import { CopyOutlined } from "@ant-design/icons";
 
 function getRandomInt(max: number, min: number = 0) {
 	return Math.floor(Math.random() * (max - min + 1)) + min; // eslint-disable-line no-mixed-operators
 }
+
 const searchResult = (query: string) =>
 	new Array(getRandomInt(5))
 		.join(".")
@@ -38,7 +39,13 @@ const searchResult = (query: string) =>
 		});
 
 export const CaseConverter: React.FC = () => {
+	const [value, setValue] = useState("");
+
 	const [options, setOptions] = useState<SelectProps<object>["options"]>([]);
+
+	const handleOutput = (e : React.ChangeEvent<HTMLInputElement>) => {
+		setValue(e.target.value)
+	}
 
 	const handleSearch = (value: string) => {
 		setOptions(value ? searchResult(value) : []);
@@ -50,26 +57,37 @@ export const CaseConverter: React.FC = () => {
 
 	return (
 		<>
-			<Col span={20}>
-				<Input placeholder="Basic usage" />
+			<Col flex='auto'>
+				<Input
+				size="large"
+				allowClear
+				placeholder="Enter Your Title"
+				onChange={handleOutput}/>
+
+				<Input
+				size="large"
+				placeholder="Output"
+				value={value} />
+				
 				<Button
 					type="primary"
 					shape="round"
 					icon={<CopyOutlined />}
 					size="large"
 				>
-					Download
+					Copy To Clipboard
 				</Button>
 			</Col>
-			<Col span={4}>
+			
+			<Col flex='400px' >
 				<AutoComplete
-					dropdownMatchSelectWidth={252}
-					style={{ width: 300 }}
+					// dropdownMatchSelectWidth={252}
+					// style={{ width: 300 }}
 					options={options}
 					onSelect={onSelect}
 					onSearch={handleSearch}
 				>
-					<Input.Search size="large" placeholder="input here" enterButton />
+					<Input.Search size="large" placeholder="Search Tags" enterButton />
 				</AutoComplete>
 				<div>
 					<Tag color="magenta">magenta</Tag>
