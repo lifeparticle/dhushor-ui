@@ -61,7 +61,7 @@ export const CaseConverter: React.FC = () => {
 						size="large"
 						allowClear
 						placeholder="Enter Your Title"
-						onChange={(e) => setTitle(apCase(e.target.value))}
+						onChange={(e) => setTitle(prevState => (apCase(e.target.value)))}
 					/>
 				</Row>
 				<Row>
