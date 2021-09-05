@@ -45,10 +45,6 @@ export const CaseConverter: React.FC = () => {
 
 	const [options, setOptions] = useState<SelectProps<object>["options"]>([]);
 
-	const handleOutput = (e: React.ChangeEvent<HTMLInputElement>) => {
-		setTitle(e.target.value);
-	};
-
 	const handleSearch = (value: string) => {
 		setOptions(value ? searchResult(value) : []);
 	};
