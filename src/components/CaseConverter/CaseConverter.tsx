@@ -3,6 +3,8 @@ import { Col, Input, AutoComplete, Tag, Button, Row } from "antd";
 import { SelectProps } from "antd/es/select";
 import { CopyOutlined } from "@ant-design/icons";
 
+const apCase = require("@lifeparticle/ap-style-title-case")
+
 function getRandomInt(max: number, min: number = 0) {
 	return Math.floor(Math.random() * (max - min + 1)) + min; // eslint-disable-line no-mixed-operators
 }
@@ -39,12 +41,12 @@ const searchResult = (query: string) =>
 		});
 
 export const CaseConverter: React.FC = () => {
-	const [value, setValue] = useState("");
+	const [title, setTitle] = useState("");
 
 	const [options, setOptions] = useState<SelectProps<object>["options"]>([]);
 
 	const handleOutput = (e: React.ChangeEvent<HTMLInputElement>) => {
-		setValue(e.target.value);
+		setTitle(e.target.value);
 	};
 
 	const handleSearch = (value: string) => {
@@ -63,11 +65,11 @@ export const CaseConverter: React.FC = () => {
 						size="large"
 						allowClear
 						placeholder="Enter Your Title"
-						onChange={handleOutput}
+						onChange={(e) => setTitle(apCase(e.target.value))}
 					/>
 				</Row>
 				<Row>
-					<Input size="large" placeholder="Output" value={value} />
+					<Input size="large" placeholder="Output" value={title} />
 				</Row>
 
 				<Row>
