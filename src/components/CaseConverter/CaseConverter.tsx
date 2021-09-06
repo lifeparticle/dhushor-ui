@@ -3,7 +3,7 @@ import { Col, Input, AutoComplete, Tag, Button, Row } from "antd";
 import { SelectProps } from "antd/es/select";
 import { CopyOutlined } from "@ant-design/icons";
 
-const apCase = require("@lifeparticle/ap-style-title-case")
+const apCase = require("@lifeparticle/ap-style-title-case");
 
 function getRandomInt(max: number, min: number = 0) {
 	return Math.floor(Math.random() * (max - min + 1)) + min; // eslint-disable-line no-mixed-operators
