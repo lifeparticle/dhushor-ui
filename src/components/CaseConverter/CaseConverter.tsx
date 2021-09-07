@@ -4,6 +4,7 @@ import { SelectProps } from "antd/es/select";
 import { CopyOutlined } from "@ant-design/icons";
 import { tags } from "../../constants/constants";
 const { Search } = Input;
+const { CheckableTag } = Tag;
 
 const apCase = require("@lifeparticle/ap-style-title-case");
 
@@ -93,9 +94,9 @@ export const CaseConverter: React.FC = () => {
 					<Space wrap>
 						{tags.map((tag) => {
 							return (
-								<Tag color="geekblue" closable>
+								<CheckableTag color="geekblue" closable>
 									{tag}
-								</Tag>
+								</CheckableTag>
 							);
 						})}
 					</Space>
