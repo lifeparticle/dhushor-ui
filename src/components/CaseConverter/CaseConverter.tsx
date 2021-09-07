@@ -56,6 +56,10 @@ export const CaseConverter: React.FC = () => {
 		console.log("onSelect", value);
 	};
 
+	const handleChange = (tag: string) => {
+		console.log(tag);
+	};
+
 	return (
 		<>
 			<Col span={18}>
@@ -86,7 +90,11 @@ export const CaseConverter: React.FC = () => {
 						onSelect={onSelect}
 						onSearch={handleSearch}
 					>
-						<Search size="large" placeholder="Search Tags" enterButton />
+						<Search
+							size="large"
+							placeholder="Search Topics, E.g. Programming"
+							enterButton
+						/>
 					</AutoComplete>
 				</Row>
 				<br />
@@ -94,7 +102,7 @@ export const CaseConverter: React.FC = () => {
 					<Space wrap>
 						{tags.map((tag) => {
 							return (
-								<CheckableTag color="geekblue" closable>
+								<CheckableTag onChange={() => handleChange(tag)} checked={true}>
 									{tag}
 								</CheckableTag>
 							);
