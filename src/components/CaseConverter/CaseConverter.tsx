@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { Col, Input, AutoComplete, Tag, Row } from "antd";
+import { Col, Input, AutoComplete, Tag, Row, Space } from "antd";
 import { SelectProps } from "antd/es/select";
 import { CopyOutlined } from "@ant-design/icons";
+import { tags } from "../../constants/constants";
 const { Search } = Input;
 
 const apCase = require("@lifeparticle/ap-style-title-case");
@@ -89,17 +90,15 @@ export const CaseConverter: React.FC = () => {
 				</Row>
 				<br />
 				<Row>
-					<Tag color="magenta">magenta</Tag>
-					<Tag color="red">red</Tag>
-					<Tag color="volcano">volcano</Tag>
-					<Tag color="orange">orange</Tag>
-					<Tag color="gold">gold</Tag>
-					<Tag color="lime">lime</Tag>
-					<Tag color="green">green</Tag>
-					<Tag color="cyan">cyan</Tag>
-					<Tag color="blue">blue</Tag>
-					<Tag color="geekblue">geekblue</Tag>
-					<Tag color="purple">purple</Tag>
+					<Space wrap>
+						{tags.map((tag) => {
+							return (
+								<Tag color="geekblue" closable>
+									{tag}
+								</Tag>
+							);
+						})}
+					</Space>
 				</Row>
 			</Col>
 		</>
