@@ -11,7 +11,7 @@ const Home: React.FC = () => {
 			<Divider orientation="left" plain>
 				Image
 			</Divider>
-			<Row>
+			<Row gutter={16}>
 				<ImageLoader />
 			</Row>
 			<Divider orientation="left" plain>

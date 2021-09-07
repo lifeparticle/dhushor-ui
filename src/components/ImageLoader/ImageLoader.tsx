@@ -1,10 +1,20 @@
 import { Col, Input, Image } from "antd";
+const { Search } = Input;
 
 export const ImageLoader: React.FC = () => {
+	const onSearch = () => {};
 	return (
 		<>
 			<Col span={12}>
-				<Input placeholder="Basic usage" />
+				<Search
+					enterButton
+					placeholder="input search text"
+					onSearch={onSearch}
+					size="large"
+				/>
+				<br />
+				<br />
+				<br />
 				<Image.PreviewGroup>
 					<Image
 						width={200}
@@ -17,7 +27,15 @@ export const ImageLoader: React.FC = () => {
 				</Image.PreviewGroup>
 			</Col>
 			<Col span={12}>
-				<Input placeholder="Basic usage" />
+				<Search
+					enterButton
+					placeholder="input search text"
+					onSearch={onSearch}
+					size="large"
+				/>
+				<br />
+				<br />
+				<br />
 				<Image.PreviewGroup>
 					<Image
 						width={200}

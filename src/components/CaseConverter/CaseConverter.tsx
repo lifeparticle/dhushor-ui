@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { Col, Input, AutoComplete, Tag, Button, Row } from "antd";
+import { Col, Input, AutoComplete, Tag, Row } from "antd";
 import { SelectProps } from "antd/es/select";
 import { CopyOutlined } from "@ant-design/icons";
+const { Search } = Input;
 
 const apCase = require("@lifeparticle/ap-style-title-case");
 
@@ -64,32 +65,30 @@ export const CaseConverter: React.FC = () => {
 						onChange={(e) => setTitle(apCase(e.target.value))}
 					/>
 				</Row>
+				<br />
 				<Row>
-					<Input size="large" placeholder="Output" value={title} />
-				</Row>
-
-				<Row>
-					<Button
-						type="primary"
-						shape="round"
-						icon={<CopyOutlined />}
+					<Search
+						placeholder=""
+						enterButton={<CopyOutlined />}
 						size="large"
-					>
-						Copy To Clipboard
-					</Button>
+						value={title}
+					/>
 				</Row>
 			</Col>
 
 			<Col span={6}>
-				<AutoComplete
-					style={{ width: "-webkit-fill-available" }}
-					options={options}
-					onSelect={onSelect}
-					onSearch={handleSearch}
-				>
-					<Input.Search size="large" placeholder="Search Tags" enterButton />
-				</AutoComplete>
-				<div>
+				<Row>
+					<AutoComplete
+						style={{ width: "-webkit-fill-available" }}
+						options={options}
+						onSelect={onSelect}
+						onSearch={handleSearch}
+					>
+						<Search size="large" placeholder="Search Tags" enterButton />
+					</AutoComplete>
+				</Row>
+				<br />
+				<Row>
 					<Tag color="magenta">magenta</Tag>
 					<Tag color="red">red</Tag>
 					<Tag color="volcano">volcano</Tag>
@@ -101,7 +100,7 @@ export const CaseConverter: React.FC = () => {
 					<Tag color="blue">blue</Tag>
 					<Tag color="geekblue">geekblue</Tag>
 					<Tag color="purple">purple</Tag>
-				</div>
+				</Row>
 			</Col>
 		</>
 	);
