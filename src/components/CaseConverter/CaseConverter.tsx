@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { Col, Input, AutoComplete, Tag, Row, Space } from "antd";
 import { SelectProps } from "antd/es/select";
-import { CopyOutlined } from "@ant-design/icons";
+import { CopyOutlined, CheckOutlined } from "@ant-design/icons";
 import { tags } from "../../constants/constants";
+
 const { Search } = Input;
 const { CheckableTag } = Tag;
+const {CopyToClipboard } = require("react-copy-to-clipboard")
 
 const apCase = require("@lifeparticle/ap-style-title-case");
 
@@ -45,8 +47,16 @@ const searchResult = (query: string) =>
 
 export const CaseConverter: React.FC = () => {
 	const [title, setTitle] = useState("");
+	const [isCopied, setIsCopied] = useState(false);
 
 	const [options, setOptions] = useState<SelectProps<object>["options"]>([]);
+
+	const onCopyTitle = () => {
+		setIsCopied(true);
+		setTimeout(() => {
+		  setIsCopied(false);
+		}, 1000);
+	  };
 
 	const handleSearch = (value: string) => {
 		setOptions(value ? searchResult(value) : []);
@@ -54,10 +64,6 @@ export const CaseConverter: React.FC = () => {
 
 	const onSelect = (value: string) => {
 		console.log("onSelect", value);
-	};
-
-	const handleChange = (tag: string) => {
-		console.log(tag);
 	};
 
 	return (
@@ -75,7 +81,11 @@ export const CaseConverter: React.FC = () => {
 				<Row>
 					<Search
 						placeholder=""
-						enterButton={<CopyOutlined />}
+						enterButton={
+						<CopyToClipboard text={title} onCopy={onCopyTitle}>
+							{isCopied ? <CheckOutlined /> : <CopyOutlined/>}
+						</CopyToClipboard>
+					}
 						size="large"
 						value={title}
 					/>
@@ -98,11 +108,13 @@ export const CaseConverter: React.FC = () => {
 					</AutoComplete>
 				</Row>
 				<br />
-				<Row>
-					<Space wrap>
+				<Row style={{ overflow: "auto", height: "150px"}}>		
+					<Space wrap>				
 						{tags.map((tag) => {
 							return (
-								<CheckableTag onChange={() => handleChange(tag)} checked={true}>
+								<CheckableTag
+								onClick={() => navigator.clipboard.writeText(tag)} 
+								checked={true}>
 									{tag}
 								</CheckableTag>
 							);
