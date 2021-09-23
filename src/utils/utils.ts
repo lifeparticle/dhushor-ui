@@ -1,4 +1,4 @@
-import { NOOPENER_NOREFERRER } from "../constants/constants";
+import { NOOPENER_NOREFERRER, tags } from "../constants/constants";
 // look into NOOPENER_NOREFERRER
 
 export const openInNewTab = (url: string, tab: string = "_blank") => {
@@ -9,3 +9,18 @@ export const openInNewTab = (url: string, tab: string = "_blank") => {
 export const convertCase = (text: string) => {
 	return "";
 };
+
+export const filterTags = (value: string): any => {
+	for (const [key, val] of Object.entries(tags)) {
+		if (key.includes(value)) {
+			return val
+		}
+	}
+	return ['']
+}
+
+export const tagArray: any = () => {
+	let topics: any[] = []
+	Object.values(tags).forEach(tag => { topics.push(...tag) })
+	return topics;
+}

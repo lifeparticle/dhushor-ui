@@ -51,53 +51,29 @@ export const ROUTING_URLS = {
 	all: "*",
 };
 
-export const tags = [
-	"Art",
-	"Artificial intelligence",
-	"Blockchain",
-	"Books",
-	"Business",
-	"Coronavirus",
-	"Creativity",
-	"Cryptocurrency",
-	"Culture",
-	"Data science",
-	"Design",
-	"Education",
-	"Entrepreneurship",
-	"Family",
-	"Fiction",
-	"Food",
-	"Health",
-	"Humor",
-	"Innovation",
-	"Javascript",
-	"Leadership",
-	"Life",
-	"Life lessons",
-	"Love",
-	"Mental health",
-	"Music",
-	"Mysql",
-	"Photography",
-	"Poetry",
-	"Politics",
-	"Postgresql",
-	"Productivity",
-	"Programming",
-	"Psychology",
-	"Relationships",
-	"Self",
-	"Self improvement",
-	"Social media",
-	"Software development",
-	"Sports",
-	"Startup",
-	"Technology",
-	"Travel",
-	"Ux",
-	"Work",
-	"Writing",
-	"Docker",
-	"Software engineering",
-];
+export const tags = {
+	"arts and entertainment":
+		["Art", "Books", "Comics", "Fiction", "Film", "Gaming", "Humor", "Music", "Nonfiction", "Photography", "Podcasts", "Poetry", "TV", "Visual Design"],
+	"culture":
+		["Culture", "Food", "Language", "Makers", "Outdoors", "Pets", "Philosophy", "Sports", "Style", "Travel", "True Crime"],
+	"equality":
+		["Accessibility", "Disability", "Equality", "Feminism", "LGBTQIA", "Race"],
+	"health":
+		["Addiction", "Coronavirus", "Fitness", "Health", "Mental Health"],
+	"industry":
+		["Business", "Design", "Economy", "Freelancing", "Leadership", "Marketing", "Media", "Product Management", "Remote Work", "Startups", "UX", "Venture Capital", "Work"],
+	"personal development":
+		["Creativity", "Mindfulness", "Money", "Productivity", "Writing"],
+	"politics":
+		["Gun Control", "Immigration", "Justice", "Politics"],
+	"programming":
+		["Android Dev", "Data Science", "iOS Dev", "Javascript", "Machine Learning", "Programming", "Software Engineer"],
+	"science":
+		["Biotech", "Climate Change", "Math", "Neuroscience", "Psychology", "Science", "Space"],
+	"self":
+		["Astrology", "Beauty", "Family", "Lifestyle", "Parenting", "Relationships", "Self", "Sexuality", "Spirituality"],
+	"society":
+		["Basic Income", "Cannabis", "Cities", "Education", "History", "Psychedelics", "Religion", "San Francisco", "Social Media", "Society", "Transportation", "World"],
+	"technology":
+		["Artificial Intelligence", "Blockchain", "Cryptocurrency", "Cybersecurity", "Digital Life", "Future", "Gadgets", "Privacy", "Self-Driving Car", "Technology"]
+}
