@@ -6,21 +6,19 @@ export const openInNewTab = (url: string, tab: string = "_blank") => {
 	if (newWindow) newWindow.opener = null;
 };
 
-export const convertCase = (text: string) => {
-	return "";
-};
-
 export const filterTags = (value: string): any => {
 	for (const [key, val] of Object.entries(tags)) {
 		if (key.includes(value)) {
-			return val
+			return val;
 		}
 	}
-	return ['']
-}
+	return [""];
+};
 
 export const tagArray: any = () => {
-	let topics: any[] = []
-	Object.values(tags).forEach(tag => { topics.push(...tag) })
+	let topics: any[] = [];
+	Object.values(tags).forEach((tag) => {
+		topics.push(...tag);
+	});
 	return topics;
-}
+};

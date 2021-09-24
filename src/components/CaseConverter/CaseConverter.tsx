@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Col, Input, AutoComplete, Tag, Row, Space } from "antd";
 import { CopyOutlined, CheckOutlined } from "@ant-design/icons";
 import { tagArray, filterTags } from "../../utils/utils";
+import { AppLinks } from "../Links/Links";
 
 const { Search } = Input;
 const { CheckableTag } = Tag;
@@ -12,26 +13,28 @@ const apCase = require("@lifeparticle/ap-style-title-case");
 export const CaseConverter: React.FC = () => {
 	const [title, setTitle] = useState("");
 	const [isCopied, setIsCopied] = useState(false);
-	const [currentTagArray, setCurrentTagArray] = useState([])
+	const [currentTagArray, setCurrentTagArray] = useState([]);
 
 	useEffect(() => {
-		setCurrentTagArray(tagArray())
-	},[])	
+		setCurrentTagArray(tagArray());
+	}, []);
 
 	const handleSearch = (value: string) => {
-		value === '' ? setCurrentTagArray(tagArray()) : setCurrentTagArray(filterTags(value.toLowerCase()))
+		value === ""
+			? setCurrentTagArray(tagArray())
+			: setCurrentTagArray(filterTags(value.toLowerCase()));
 	};
 
 	const onCopyTitle = () => {
 		setIsCopied(true);
 		setTimeout(() => {
-		  setIsCopied(false);
+			setIsCopied(false);
 		}, 1000);
 	};
 
 	return (
 		<>
-			<Col span={18}>
+			<Col span={8}>
 				<Row>
 					<Input
 						size="large"
@@ -45,17 +48,17 @@ export const CaseConverter: React.FC = () => {
 					<Search
 						placeholder=""
 						enterButton={
-						<CopyToClipboard text={title} onCopy={onCopyTitle}>
-							{isCopied ? <CheckOutlined /> : <CopyOutlined/>}
-						</CopyToClipboard>
-					}
+							<CopyToClipboard text={title} onCopy={onCopyTitle}>
+								{isCopied ? <CheckOutlined /> : <CopyOutlined />}
+							</CopyToClipboard>
+						}
 						size="large"
 						value={title}
 					/>
 				</Row>
 			</Col>
 
-			<Col span={6}>
+			<Col span={8}>
 				<Row>
 					<AutoComplete
 						style={{ width: "-webkit-fill-available" }}
@@ -69,19 +72,23 @@ export const CaseConverter: React.FC = () => {
 					</AutoComplete>
 				</Row>
 				<br />
-				<Row style={{ overflow: "auto", height: "150px"}}>	
-					<Space wrap>				
+				<Row style={{ overflow: "auto", height: "150px" }}>
+					<Space wrap>
 						{currentTagArray.map((tag) => {
 							return (
 								<CheckableTag
-								onClick={() => navigator.clipboard.writeText(tag)} 
-								checked={true}>
+									onClick={() => navigator.clipboard.writeText(tag)}
+									checked={true}
+								>
 									{tag}
 								</CheckableTag>
 							);
 						})}
 					</Space>
 				</Row>
+			</Col>
+			<Col span={8}>
+				<AppLinks />
 			</Col>
 		</>
 	);

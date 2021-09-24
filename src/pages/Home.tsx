@@ -1,5 +1,5 @@
 import { Row, Divider } from "antd";
-import { AppLinks } from "../components/Links/Links";
+
 import { CaseConverter } from "../components/CaseConverter/CaseConverter";
 import { ImageLoader } from "../components/ImageLoader/ImageLoader";
 const Home: React.FC = () => {
@@ -17,9 +17,6 @@ const Home: React.FC = () => {
 			<Divider orientation="left" plain>
 				Helpful Links
 			</Divider>
-			<Row className="link-row" gutter={16}>
-				<AppLinks />
-			</Row>
 		</>
 	);
 };
