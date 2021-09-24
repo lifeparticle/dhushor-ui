@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
 import { Col, Input, AutoComplete, Tag, Row, Space } from "antd";
 import { CopyOutlined, CheckOutlined } from "@ant-design/icons";
-import { tagArray, filterTags } from "../../utils/utils";
+import { tagArray, filterTags, openNotification } from "../../utils/utils";
 import { AppLinks } from "../Links/Links";
 
 const { Search } = Input;
 const { CheckableTag } = Tag;
-const { CopyToClipboard } = require("react-copy-to-clipboard");
 
 const apCase = require("@lifeparticle/ap-style-title-case");
 
@@ -25,11 +24,15 @@ export const CaseConverter: React.FC = () => {
 			: setCurrentTagArray(filterTags(value.toLowerCase()));
 	};
 
-	const onCopyTitle = () => {
-		setIsCopied(true);
-		setTimeout(() => {
-			setIsCopied(false);
-		}, 1000);
+	const coptToClipBoard = (text: string, setState?: any) => {
+		if (setState) {
+			setState(true);
+			setTimeout(() => {
+				setIsCopied(false);
+			}, 1000);
+		}
+		navigator.clipboard.writeText(text);
+		openNotification();
 	};
 
 	return (
@@ -47,13 +50,12 @@ export const CaseConverter: React.FC = () => {
 				<Row>
 					<Search
 						placeholder=""
-						enterButton={
-							<CopyToClipboard text={title} onCopy={onCopyTitle}>
-								{isCopied ? <CheckOutlined /> : <CopyOutlined />}
-							</CopyToClipboard>
-						}
+						enterButton={isCopied ? <CheckOutlined /> : <CopyOutlined />}
 						size="large"
 						value={title}
+						onSearch={(value) => {
+							coptToClipBoard(value, setIsCopied);
+						}}
 					/>
 				</Row>
 			</Col>
@@ -77,7 +79,7 @@ export const CaseConverter: React.FC = () => {
 						{currentTagArray.map((tag) => {
 							return (
 								<CheckableTag
-									onClick={() => navigator.clipboard.writeText(tag)}
+									onClick={() => coptToClipBoard(tag)}
 									checked={true}
 								>
 									{tag}

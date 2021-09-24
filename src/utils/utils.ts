@@ -1,3 +1,5 @@
+import { notification } from "antd";
+
 import { NOOPENER_NOREFERRER, tags } from "../constants/constants";
 // look into NOOPENER_NOREFERRER
 
@@ -21,4 +23,11 @@ export const tagArray: any = () => {
 		topics.push(...tag);
 	});
 	return topics;
+};
+
+export const openNotification = () => {
+	notification.open({
+		message: "Copied",
+		onClick: () => {},
+	});
 };

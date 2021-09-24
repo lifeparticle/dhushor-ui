@@ -1,7 +1,15 @@
 import { Col, Input, Image } from "antd";
+import { useEffect, useState } from "react";
+import PexelsApi from "../../api/PexelsApi";
+
 const { Search } = Input;
 
 export const ImageLoader: React.FC = () => {
+	const [data, setData] = useState(null);
+
+	useEffect(() => {
+		// setData(new PexelsApi.getImage());
+	});
 	const onSearch = () => {};
 	return (
 		<>
