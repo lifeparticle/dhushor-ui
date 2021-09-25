@@ -28,7 +28,7 @@ export const CaseConverter: React.FC = () => {
 		if (setState) {
 			setState(true);
 			setTimeout(() => {
-				setIsCopied(false);
+				setState(false);
 			}, 1000);
 		}
 		navigator.clipboard.writeText(text);
