@@ -24,7 +24,7 @@ export const CaseConverter: React.FC = () => {
 			: setCurrentTagArray(filterTags(value.toLowerCase()));
 	};
 
-	const coptToClipBoard = (text: string, setState?: any) => {
+	const copyToClipBoard = (text: string, setState?: any) => {
 		if (setState) {
 			setState(true);
 			setTimeout(() => {
@@ -54,7 +54,7 @@ export const CaseConverter: React.FC = () => {
 						size="large"
 						value={title}
 						onSearch={(value) => {
-							coptToClipBoard(value, setIsCopied);
+							copyToClipBoard(value, setIsCopied);
 						}}
 					/>
 				</Row>
@@ -79,7 +79,7 @@ export const CaseConverter: React.FC = () => {
 						{currentTagArray.map((tag) => {
 							return (
 								<CheckableTag
-									onClick={() => coptToClipBoard(tag)}
+									onClick={() => copyToClipBoard(tag)}
 									checked={true}
 								>
 									{tag}
