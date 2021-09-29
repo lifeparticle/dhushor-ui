@@ -28,7 +28,7 @@ class UnsplashApi {
 	getImage = async (query: string) => {
 		const url = `https://api.unsplash.com/search/photos?page=1&query=${query}&client_id=${this.clientId}`;
 		const test = await httpGet(url);
-		console.log(test);
+		// console.log(test);
 		return test.results;
 	};
 }

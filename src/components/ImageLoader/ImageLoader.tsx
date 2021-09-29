@@ -9,27 +9,23 @@ const { Search } = Input;
 export const ImageLoader: React.FC = () => {
 	const [data, setData] = useState(null);
 	const [photos, setPhotos] = useState<UnsplashInterface[]>();
-	// const [laoding, setLoading] = useState(false);
-
-	useEffect(() => {
-		// setData(new PexelsApi.getImage());
-		// setPhotos(new UnsplashApi.getImage("random"));
-	});
+	const [isLaoding, setIsLoading] = useState(false);
+	const [error, setError] = useState(false);
 
 	const onUnsplashSearch = async (query: string) => {
 		// setLoading(false);
 		const unsplash = new UnsplashApi();
 		const photos1 = await unsplash.getImage(query);
-		setPhotos(photos1);
 		console.log("photos1", photos && photos[0].urls["thumb"]);
-		if (photos) {
-			photos.map((photo) => {
-				console.log(photo.urls["thumb"]);
-			});
-		}
-
+		return photos1;
 		// setLoading(true);
 	};
+
+	useEffect(() => {
+		onUnsplashSearch("programming").then((data) => {
+			setPhotos(data);
+		});
+	}, []);
 
 	const onPexelsSearch = (query: string) => {
 		const pexels = new PexelsApi();
@@ -44,7 +40,11 @@ export const ImageLoader: React.FC = () => {
 				<Search
 					enterButton
 					placeholder="Unsplash"
-					onSearch={onUnsplashSearch}
+					onSearch={(data) => {
+						onUnsplashSearch(data).then((data) => {
+							setPhotos(data);
+						});
+					}}
 					size="large"
 				/>
 				<br />
@@ -68,22 +68,10 @@ export const ImageLoader: React.FC = () => {
 				<br />
 				<br />
 				<Image.PreviewGroup>
-					{
-						// 	photos.map((photo) => {
-						// 		console.log(photo.src.original);
-						// 		<div>
-						// 			<Image
-						// 				width={200}
-						// 				src={photo.src.original}
-						// />
-						// 		</div>
-						// 	})
-					}
-
-					<Image
-						width={200}
-						src="https://gw.alipayobjects.com/zos/antfincdn/aPkFc8Sj7n/method-draw-image.svg"
-					/>
+					{photos &&
+						photos.map((photo) => {
+							return <Image width={200} src={photo.urls["thumb"]} />;
+						})}
 				</Image.PreviewGroup>
 			</Col>
 		</>
