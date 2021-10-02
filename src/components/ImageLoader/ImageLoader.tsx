@@ -1,38 +1,47 @@
-import { Col, Input, Image } from "antd";
+import { Col, Input, Image, Space } from "antd";
 import { useEffect, useState } from "react";
 import PexelsApi from "../../api/PexelsApi";
 import UnsplashApi from "../../api/UnsplashApi";
 import { UnsplashInterface } from "../../api/UnsplashApi";
+import { PexelsInterface } from "../../api/PexelsApi";
 
 const { Search } = Input;
 
 export const ImageLoader: React.FC = () => {
-	const [data, setData] = useState(null);
-	const [photos, setPhotos] = useState<UnsplashInterface[]>();
+	// const [data, setData] = useState(null);
+	const [unsplashPhotos, setUnsplashPhotos] = useState<UnsplashInterface[]>();
+	const [pexelsPhotos, setPexelsPhotos] = useState<PexelsInterface[]>();
 	const [isLaoding, setIsLoading] = useState(false);
 	const [error, setError] = useState(false);
 
-	const onUnsplashSearch = async (query: string) => {
+	const onImageSearch = async (query: string, isUnsplash:boolean) => {
 		// setLoading(false);
-		const unsplash = new UnsplashApi();
-		const photos1 = await unsplash.getImage(query);
-		console.log("photos1", photos && photos[0].urls["thumb"]);
-		return photos1;
+
+		let images = null;
+		
+		if (isUnsplash) {
+			const unsplash = new UnsplashApi();
+			images = await unsplash.getImage(query);
+		}
+		else{
+			const pexels = new PexelsApi();
+			images = await pexels.getImage(query);
+		}
+
 		// setLoading(true);
-	};
+
+		return images;
+	}
 
 	useEffect(() => {
-		onUnsplashSearch("programming").then((data) => {
-			setPhotos(data);
+		onImageSearch("programming",true).then((data) => {
+			setUnsplashPhotos(data);
+		});
+
+		onImageSearch("programming",false).then((data) => {
+			setPexelsPhotos(data);
 		});
 	}, []);
-
-	const onPexelsSearch = (query: string) => {
-		const pexels = new PexelsApi();
-		const photos1 = pexels.getImage(query);
-
-		// setPhotos(photos1);
-	};
 
 	return (
 		<>
@@ -40,9 +49,34 @@ export const ImageLoader: React.FC = () => {
 				<Search
 					enterButton
 					placeholder="Unsplash"
-					onSearch={(data) => {
-						onUnsplashSearch(data).then((data) => {
-							setPhotos(data);
+					onSearch={(value) => {
+						onImageSearch(value,true).then((data) => {
+							setUnsplashPhotos(data);
+						});
+					}}
+					size="large"
+				/>
+				<br />
+				<br />
+				<br />
+				
+				<Image.PreviewGroup>
+					<Space wrap>
+						{unsplashPhotos &&
+							unsplashPhotos.map((photo) => {
+								return <Image width={200} src={photo.urls["thumb"]} />;
+							})}
+					</Space>
+				</Image.PreviewGroup>
+				
+			</Col>
+			<Col span={12}>
+				<Search
+					enterButton
+					placeholder="Pexels"
+					onSearch={(value) => {
+						onImageSearch(value,false).then((data) => {
+							setPexelsPhotos(data);
 						});
 					}}
 					size="large"
@@ -51,27 +85,12 @@ export const ImageLoader: React.FC = () => {
 				<br />
 				<br />
 				<Image.PreviewGroup>
-					{photos &&
-						photos.map((photo) => {
-							return <Image width={200} src={photo.urls["thumb"]} />;
-						})}
-				</Image.PreviewGroup>
-			</Col>
-			<Col span={12}>
-				<Search
-					enterButton
-					placeholder="Pexels"
-					onSearch={onPexelsSearch}
-					size="large"
-				/>
-				<br />
-				<br />
-				<br />
-				<Image.PreviewGroup>
-					{photos &&
-						photos.map((photo) => {
-							return <Image width={200} src={photo.urls["thumb"]} />;
-						})}
+					<Space wrap>
+						{pexelsPhotos &&
+							pexelsPhotos.map((photo) => {
+								return <Image width={200} src={photo.src['medium']} />;
+							})}
+					</Space>
 				</Image.PreviewGroup>
 			</Col>
 		</>
