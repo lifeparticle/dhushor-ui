@@ -1,13 +1,15 @@
-export const call = async (request: any) => {
-	let response: any = await fetch(request);
+export const call = async (url: string, headers?: object) => {
+    console.log(headers);
 
-	try {
-		response = await response.json();
-	} catch (ex) {}
+    let response: any = await fetch(url, headers);
 
-	return response;
+    try {
+        response = await response.json();
+    } catch (ex) { console.log(ex); }
+
+    return response;
 };
 
-export const httpGet = async (url: string) => {
-	return await call(url);
+export const httpGet = async (url: string, headers?: object) => {
+    return await call(url, headers);
 };
