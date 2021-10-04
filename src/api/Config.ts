@@ -1,5 +1,5 @@
 export const call = async (url: string, headers?: object) => {
-    console.log(headers);
+    // console.log(headers);
 
     let response: any = await fetch(url, headers);
 

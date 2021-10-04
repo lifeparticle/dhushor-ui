@@ -15,7 +15,7 @@ export interface PexelsInterface {
 
 class PexelsApi {
 	getImage = async (query: string) => {
-		const url = `https://api.pexels.com/v1/search?query=${query}&per_page=10`;
+		const url = `https://api.pexels.com/v1/search?query=${query}&per_page=12&orientation=landscape`;
 		const headers = { headers: { Authorization: "563492ad6f917000010000019963db525bd445018f7b107d172891ea" } };
 
 		// {
