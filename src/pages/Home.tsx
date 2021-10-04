@@ -14,9 +14,6 @@ const Home: React.FC = () => {
 			<Row gutter={16}>
 				<ImageLoader />
 			</Row>
-			<Divider orientation="left" plain>
-				Helpful Links
-			</Divider>
 		</>
 	);
 };
