@@ -32,7 +32,7 @@ class UnsplashApi {
 	clientId = "7O6rhxCZTJUm_tJ2nFhwAlbCXo_oGfxkcrn8LzPNPVU";
 
 	getImage = async (query: string, page?: number) => {
-		console.log("api yoo");
+		// console.log("api yoo");
 		const url = `https://api.unsplash.com/search/photos?page=${page}&per_page=12&orientation=landscape&query=${query}&client_id=${this.clientId}`;
 		const res = await httpGet(url);
 		total = res.total;
