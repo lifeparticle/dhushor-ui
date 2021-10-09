@@ -29,7 +29,7 @@ export const tagArray: any = () => {
 export const openNotification = () => {
 	notification.open({
 		message: "Copied",
-		onClick: () => {},
+		onClick: () => { },
 	});
 };
 
@@ -39,7 +39,7 @@ export const useApi = <T>(
 	const [photos, setPhotos] = useState<T[]>([]);
 	const [isLoading, setIsLoading] = useState(false);
 	const [error, setError] = useState(false);
-	const [searchedValue, setSearchedValue] = useState("");
+	const [searchedValue, setSearchedValue] = useState("programming");
 
 	useEffect(() => {
 		onImageSearch("programming");
@@ -51,7 +51,7 @@ export const useApi = <T>(
 			setError(false);
 			const data = await api.getImage(query, page);
 			setPhotos(data);
-		} catch (error) {
+		} catch (err) {
 			setError(true);
 		} finally {
 			setIsLoading(false);
