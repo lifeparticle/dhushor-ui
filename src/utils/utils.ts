@@ -44,6 +44,7 @@ export const useApi = <T>(
 
 	useEffect(() => {
 		onImageSearch("programming");
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	const onImageSearch = async (query: string, page?: number) => {
