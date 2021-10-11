@@ -12,15 +12,12 @@
 		"@types/react": "^17.0.0",
 		"@types/react-dom": "^17.0.0",
 		"antd": "^4.16.11",
-		"axios": "^0.21.4",
 		"react": "^17.0.2",
 		"react-dom": "^17.0.2",
 		"react-icons": "^4.2.0",
 		"react-router-dom": "^5.2.0",
 		"react-scripts": "4.0.3",
-		"typescript": "^4.1.2",
-		"unsplash-js": "^7.0.15",
-		"web-vitals": "^1.0.1"
+		"typescript": "^4.1.2"
 	},
 	"scripts": {
 		"start": "react-scripts start",

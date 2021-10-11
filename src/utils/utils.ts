@@ -1,8 +1,7 @@
 import { notification } from "antd";
 import { useState, useEffect } from "react";
 
-import { NOOPENER_NOREFERRER, tags } from "../constants/constants";
-// look into NOOPENER_NOREFERRER
+import { NOOPENER_NOREFERRER, TAGS } from "../constants/constants";
 
 export const openInNewTab = (url: string, tab: string = "_blank") => {
 	const newWindow = window.open(url, tab, NOOPENER_NOREFERRER);
@@ -10,18 +9,20 @@ export const openInNewTab = (url: string, tab: string = "_blank") => {
 };
 
 export const filterTags = (value: string): any => {
-	for (const [key, val] of Object.entries(tags)) {
+	for (const [key, val] of Object.entries(TAGS)) {
 		if (key.includes(value)) {
 			return val;
 		}
 	}
-	return [""];
+	return [];
 };
 
 export const tagArray: any = () => {
 	let topics: any[] = [];
-	Object.values(tags).forEach((tag) => {
-		topics.push(...tag);
+	Object.values(TAGS).forEach((tag_obejct) => {
+		Object.values(tag_obejct).forEach((v) => {
+			topics.push(v);
+		});
 	});
 	return topics;
 };
@@ -29,7 +30,7 @@ export const tagArray: any = () => {
 export const openNotification = () => {
 	notification.open({
 		message: "Copied",
-		onClick: () => { },
+		onClick: () => {},
 	});
 };
 
@@ -47,6 +48,7 @@ export const useApi = <T>(
 
 	const onImageSearch = async (query: string, page?: number) => {
 		try {
+			setPhotos([]);
 			setIsLoading(true);
 			setError(false);
 			const data = await api.getImage(query, page);

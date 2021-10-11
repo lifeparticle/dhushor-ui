@@ -1,4 +1,4 @@
-import { Input, Image, Space } from "antd";
+import { Input } from "antd";
 const { Search } = Input;
 
 interface SearchImageprops {

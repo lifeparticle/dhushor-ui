@@ -77,14 +77,17 @@ export const CaseConverter: React.FC = () => {
 				<Row style={{ overflow: "auto", height: "150px" }}>
 					<Space wrap>
 						{currentTagArray.map((tag) => {
-							return (
-								<CheckableTag
-									onClick={() => copyToClipBoard(tag)}
-									checked={true}
-								>
-									{tag}
-								</CheckableTag>
-							);
+							return Object.keys(tag).map(function (key) {
+								return (
+									<CheckableTag
+										key={key}
+										onClick={() => copyToClipBoard(tag[key])}
+										checked={true}
+									>
+										{tag[key]}
+									</CheckableTag>
+								);
+							});
 						})}
 					</Space>
 				</Row>

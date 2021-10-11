@@ -1,14 +1,15 @@
 import React from "react";
 import { Space, Button } from "antd";
-import { links } from "../../constants/constants";
+import { LINKS } from "../../constants/constants";
 import { openInNewTab } from "../../utils/utils";
 
 export const AppLinks: React.FC = () => {
 	return (
 		<Space wrap>
-			{links.map((link) => {
+			{LINKS.map((link) => {
 				return link.enable ? (
 					<Button
+						key={link.key}
 						type="primary"
 						shape="round"
 						size="large"

@@ -2,7 +2,7 @@ import { FaPen, FaEtsy, FaBook, FaCuttlefish } from "react-icons/fa";
 import { GoLogoGist } from "react-icons/go";
 
 export const NOOPENER_NOREFERRER = "noopener,noreferrer";
-export let links = [
+export const LINKS = [
 	{
 		key: "1",
 		title: "Gist Github",
@@ -51,29 +51,132 @@ export const ROUTING_URLS = {
 	all: "*",
 };
 
-export const tags = {
-	"arts and entertainment":
-		["Art", "Books", "Comics", "Fiction", "Film", "Gaming", "Humor", "Music", "Nonfiction", "Photography", "Podcasts", "Poetry", "TV", "Visual Design"],
-	"culture":
-		["Culture", "Food", "Language", "Makers", "Outdoors", "Pets", "Philosophy", "Sports", "Style", "Travel", "True Crime"],
-	"equality":
-		["Accessibility", "Disability", "Equality", "Feminism", "LGBTQIA", "Race"],
-	"health":
-		["Addiction", "Coronavirus", "Fitness", "Health", "Mental Health"],
-	"industry":
-		["Business", "Design", "Economy", "Freelancing", "Leadership", "Marketing", "Media", "Product Management", "Remote Work", "Startups", "UX", "Venture Capital", "Work"],
-	"personal development":
-		["Creativity", "Mindfulness", "Money", "Productivity", "Writing"],
-	"politics":
-		["Gun Control", "Immigration", "Justice", "Politics"],
-	"programming":
-		["Android Dev", "Data Science", "iOS Dev", "Javascript", "Machine Learning", "Programming", "Software Engineer"],
-	"science":
-		["Biotech", "Climate Change", "Math", "Neuroscience", "Psychology", "Science", "Space"],
-	"self":
-		["Astrology", "Beauty", "Family", "Lifestyle", "Parenting", "Relationships", "Self", "Sexuality", "Spirituality"],
-	"society":
-		["Basic Income", "Cannabis", "Cities", "Education", "History", "Psychedelics", "Religion", "San Francisco", "Social Media", "Society", "Transportation", "World"],
-	"technology":
-		["Artificial Intelligence", "Blockchain", "Cryptocurrency", "Cybersecurity", "Digital Life", "Future", "Gadgets", "Privacy", "Self-Driving Car", "Technology"]
-}
+export const TAGS = {
+	"arts and entertainment": [
+		{ a1: "Art" },
+		{ a2: "Books" },
+		{ a3: "Comics" },
+		{ a4: "Fiction" },
+		{ a5: "Film" },
+		{ a6: "Gaming" },
+		{ a7: "Humor" },
+		{ a8: "Music" },
+		{ a9: "Nonfiction" },
+		{ a10: "Photography" },
+		{ a11: "Podcasts" },
+		{ a12: "Poetry" },
+		{ a13: "TV" },
+		{ a14: "Visual Design" },
+	],
+	culture: [
+		{ b1: "Culture" },
+		{ b2: "Food" },
+		{ b3: "Language" },
+		{ b4: "Makers" },
+		{ b5: "Outdoors" },
+		{ b6: "Pets" },
+		{ b7: "Philosophy" },
+		{ b8: "Sports" },
+		{ b9: "Style" },
+		{ b10: "Travel" },
+		{ b11: "True Crime" },
+	],
+	equality: [
+		{ c1: "Accessibility" },
+		{ c2: "Disability" },
+		{ c3: "Equality" },
+		{ c4: "Feminism" },
+		{ c5: "LGBTQIA" },
+		{ c6: "Race" },
+	],
+	health: [
+		{ d1: "Addiction" },
+		{ d2: "Coronavirus" },
+		{ d3: "Fitness" },
+		{ d4: "Health" },
+		{ d5: "Mental Health" },
+	],
+	industry: [
+		{ e1: "Business" },
+		{ e2: "Design" },
+		{ e3: "Economy" },
+		{ e4: "Freelancing" },
+		{ e5: "Leadership" },
+		{ e6: "Marketing" },
+		{ e7: "Media" },
+		{ e8: "Product Management" },
+		{ e9: "Remote Work" },
+		{ e10: "Startups" },
+		{ e11: "UX" },
+		{ e12: "Venture Capital" },
+		{ e13: "Work" },
+	],
+	"personal development": [
+		{ f1: "Creativity" },
+		{ f2: "Mindfulness" },
+		{ f3: "Money" },
+		{ f4: "Productivity" },
+		{ f5: "Writing" },
+	],
+	politics: [
+		{ g1: "Gun Control" },
+		{ g2: "Immigration" },
+		{ g3: "Justice" },
+		{ g4: "Politics" },
+	],
+	programming: [
+		{ h1: "Android Dev" },
+		{ h2: "Data Science" },
+		{ h3: "iOS Dev" },
+		{ h4: "Javascript" },
+		{ h5: "Machine Learning" },
+		{ h6: "Programming" },
+		{ h7: "Software Engineer" },
+	],
+	science: [
+		{ i1: "Biotech" },
+		{ i2: "Climate Change" },
+		{ i3: "Math" },
+		{ i4: "Neuroscience" },
+		{ i5: "Psychology" },
+		{ i6: "Science" },
+		{ i7: "Space" },
+	],
+	self: [
+		{ j1: "Astrology" },
+		{ j2: "Beauty" },
+		{ j3: "Family" },
+		{ j4: "Lifestyle" },
+		{ j5: "Parenting" },
+		{ j6: "Relationships" },
+		{ j7: "Self" },
+		{ j8: "Sexuality" },
+		{ j9: "Spirituality" },
+	],
+	society: [
+		{ k1: "Basic Income" },
+		{ k2: "Cannabis" },
+		{ k3: "Cities" },
+		{ k4: "Education" },
+		{ k5: "History" },
+		{ k6: "Psychedelics" },
+		{ k7: "Religion" },
+		{ k8: "San Francisco" },
+		{ k9: "Social Media" },
+		{ k10: "Society" },
+		{ k11: "Transportation" },
+		{ k12: "World" },
+	],
+	technology: [
+		{ l1: "Artificial Intelligence" },
+		{ l2: "Blockchain" },
+		{ l3: "Cryptocurrency" },
+		{ l4: "Cybersecurity" },
+		{ l5: "Digital Life" },
+		{ l6: "Future" },
+		{ l7: "Gadgets" },
+		{ l8: "Privacy" },
+		{ l0: "Self-Driving Car" },
+		{ l10: "Technology" },
+	],
+};
