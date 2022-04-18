@@ -33,6 +33,7 @@ export const ImageLoader: React.FC = () => {
 					onImageSearch={onImageSearchU}
 					isLoading={isLoadingU}
 					photos={photosU}
+					placeHolder="unsplash"
 				/>
 				<Space direction="vertical" size="large">
 					<Image.PreviewGroup>
@@ -41,7 +42,10 @@ export const ImageLoader: React.FC = () => {
 								Array.from({ length: 12 }, (_, k) => (
 									<Skeleton.Image
 										key={k}
-										style={{ height: "133px", width: "200px" }}
+										style={{
+											height: "133px",
+											width: "200px",
+										}}
 									/>
 								))}
 							{errorU && (
@@ -86,6 +90,7 @@ export const ImageLoader: React.FC = () => {
 					onImageSearch={onImageSearchP}
 					isLoading={isLoadingP}
 					photos={photosP}
+					placeHolder="pexels"
 				/>
 				<Space direction="vertical" size="large">
 					<Image.PreviewGroup>
@@ -94,7 +99,10 @@ export const ImageLoader: React.FC = () => {
 								Array.from({ length: 12 }, (_, k) => (
 									<Skeleton.Image
 										key={k}
-										style={{ height: "133px", width: "200px" }}
+										style={{
+											height: "133px",
+											width: "200px",
+										}}
 									/>
 								))}
 							{errorP && (

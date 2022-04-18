@@ -6,6 +6,7 @@ interface SearchImageprops {
 	onImageSearch: any;
 	isLoading: boolean;
 	photos: any[];
+	placeHolder: string;
 }
 
 export const SearchImage: React.FC<SearchImageprops> = ({
@@ -13,13 +14,14 @@ export const SearchImage: React.FC<SearchImageprops> = ({
 	onImageSearch,
 	isLoading,
 	photos,
+	placeHolder,
 }) => {
 	return (
 		<>
 			<Search
 				onChange={(e) => setSearchedValue(e.target.value)}
 				enterButton
-				placeholder="Unsplash"
+				placeholder={placeHolder}
 				onSearch={(value) => {
 					onImageSearch(value, true);
 				}}
