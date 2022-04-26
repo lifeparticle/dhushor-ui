@@ -36,7 +36,7 @@ export const ImageLoader: React.FC = () => {
 					placeHolder="unsplash"
 				/>
 				<Space direction="vertical" size="large">
-					<Image.PreviewGroup>
+					<Image.PreviewGroup data-testid="unsplash-gallery">
 						<Space wrap>
 							{isLoadingU &&
 								Array.from({ length: 12 }, (_, k) => (
@@ -93,7 +93,7 @@ export const ImageLoader: React.FC = () => {
 					placeHolder="pexels"
 				/>
 				<Space direction="vertical" size="large">
-					<Image.PreviewGroup>
+					<Image.PreviewGroup data-testid="pexels-gallery">
 						<Space wrap>
 							{isLoadingP &&
 								Array.from({ length: 12 }, (_, k) => (
