@@ -19,6 +19,7 @@ export const SearchImage: React.FC<SearchImageprops> = ({
 	return (
 		<>
 			<Search
+				data-testid="searchbox"
 				onChange={(e) => setSearchedValue(e.target.value)}
 				enterButton
 				placeholder={placeHolder}
