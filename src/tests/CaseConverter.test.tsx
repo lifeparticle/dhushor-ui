@@ -1,9 +1,10 @@
-import React from "react";
-import { screen, render, waitFor } from "@testing-library/react";
+import { screen, render } from "@testing-library/react";
 import { CaseConverter } from "../components/CaseConverter/CaseConverter";
 
-test("", () => {
+test("Case Converter", () => {
 	render(<CaseConverter />);
-	const GamingTag = screen.getByText(/Gaming/i);
-	expect(GamingTag).toBeInTheDocument;
+	const titleInput = screen.getAllByTestId("titleinput");
+	const titleOutput = screen.getAllByTestId("titleoutput");
+	expect(titleInput).toBeInTheDocument;
+	expect(titleOutput).toBeInTheDocument;
 });

@@ -29,6 +29,7 @@ export const ImageLoader: React.FC = () => {
 		<>
 			<Col span={12}>
 				<SearchImage
+					data-testid="searchboxu"
 					setSearchedValue={setSearchedValueU}
 					onImageSearch={onImageSearchU}
 					isLoading={isLoadingU}
@@ -71,6 +72,7 @@ export const ImageLoader: React.FC = () => {
 
 					<Row justify="center">
 						<Pagination
+							data-testid="paginationu"
 							total={total}
 							showTotal={(totals) => `Total ${totals} items`}
 							defaultCurrent={1}
@@ -86,6 +88,7 @@ export const ImageLoader: React.FC = () => {
 
 			<Col span={12}>
 				<SearchImage
+					data-testid="searchboxp"
 					setSearchedValue={setSearchedValueP}
 					onImageSearch={onImageSearchP}
 					isLoading={isLoadingP}
@@ -128,6 +131,7 @@ export const ImageLoader: React.FC = () => {
 
 					<Row justify="center">
 						<Pagination
+							data-testid="paginationp"
 							total={total_results}
 							showTotal={(totals) => `Total ${totals} items`}
 							defaultCurrent={1}

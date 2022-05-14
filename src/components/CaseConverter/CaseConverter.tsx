@@ -40,6 +40,7 @@ export const CaseConverter: React.FC = () => {
 			<Col span={8}>
 				<Row>
 					<Input
+						data-testid="titleinput"
 						size="large"
 						allowClear
 						placeholder="Enter Your Title"
@@ -49,8 +50,11 @@ export const CaseConverter: React.FC = () => {
 				<br />
 				<Row>
 					<Search
+						data-testid="titleoutput"
 						placeholder=""
-						enterButton={isCopied ? <CheckOutlined /> : <CopyOutlined />}
+						enterButton={
+							isCopied ? <CheckOutlined /> : <CopyOutlined />
+						}
 						size="large"
 						value={title}
 						onSearch={(value) => {
@@ -81,7 +85,9 @@ export const CaseConverter: React.FC = () => {
 								return (
 									<CheckableTag
 										key={key}
-										onClick={() => copyToClipBoard(tag[key])}
+										onClick={() =>
+											copyToClipBoard(tag[key])
+										}
 										checked={true}
 									>
 										{tag[key]}

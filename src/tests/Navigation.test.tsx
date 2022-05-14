@@ -1,20 +1,20 @@
-import React from "react";
-import { screen, render, waitFor } from "@testing-library/react";
+import { screen, render, act, waitFor } from "@testing-library/react";
 import { AppNavigation } from "../components/Navigation/Navigation";
-import { act } from "react-dom/test-utils";
-import { BrowserRouter } from "react-router-dom";
+import { MemoryRouter } from "react-router-dom";
 
-test("Navigation Button Works", () => {
-	// // screen.debug();
-	// act(() => {
-	// 	render(
-	// 		<BrowserRouter>
-	// 			<AppNavigation />
-	// 		</BrowserRouter>
-	// 	);
-	// });
-	// const homeNav = screen.queryByTestId("homeNav");
-	// const aboutNav = screen.queryByTestId("aboutNav");
-	// expect(homeNav).toBeInTheDocument;
-	// expect(aboutNav).toBeInTheDocument;
+test("Navigation Button Works", async () => {
+	act(() => {
+		render(
+			<MemoryRouter>
+				<AppNavigation />
+			</MemoryRouter>
+		);
+	});
+	const homeNav = screen.getByRole("link", { name: /home/i });
+	const aboutNav = screen.getByRole("link", { name: /about/i });
+
+	await waitFor(() => {
+		expect(homeNav).toBeInTheDocument;
+		expect(aboutNav).toBeInTheDocument;
+	});
 });
