@@ -80,7 +80,7 @@ export const CaseConverter: React.FC = () => {
 				</Row>
 				<br />
 				<Row style={{ overflow: "auto", height: "150px" }}>
-					<Space wrap data-testid="tags">
+					<Space wrap>
 						{currentTagArray.map((tag) => {
 							return Object.keys(tag).map(function (key) {
 								return (
