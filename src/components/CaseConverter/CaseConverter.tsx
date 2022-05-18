@@ -71,6 +71,7 @@ export const CaseConverter: React.FC = () => {
 						onSearch={handleSearch}
 					>
 						<Search
+							data-testid="topicSearch"
 							size="large"
 							placeholder="Search Topics, E.g. Programming"
 							enterButton
@@ -79,7 +80,7 @@ export const CaseConverter: React.FC = () => {
 				</Row>
 				<br />
 				<Row style={{ overflow: "auto", height: "150px" }}>
-					<Space wrap>
+					<Space wrap data-testid="tags">
 						{currentTagArray.map((tag) => {
 							return Object.keys(tag).map(function (key) {
 								return (
