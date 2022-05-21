@@ -29,11 +29,10 @@ export interface UnsplashInterface {
 export let total = 0;
 
 class UnsplashApi {
-	clientId = "7O6rhxCZTJUm_tJ2nFhwAlbCXo_oGfxkcrn8LzPNPVU";
+	clientId = "";
 
 	getImage = async (query: string, page?: number) => {
-		// console.log("api yoo");
-		const url = `https://api.unsplash.com/search/photos?page=${page}&per_page=12&orientation=landscape&query=${query}&client_id=${this.clientId}`;
+		const url = `https://dhushor-985rkpuxo-lifeparticle.vercel.app/api/index?name=unsplash&page=${page}&query=${query}`;
 		const res = await httpGet(url);
 		total = res.total;
 		return res.results;
