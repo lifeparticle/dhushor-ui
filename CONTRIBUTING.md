@@ -41,14 +41,14 @@
     ```
 6.  Create a pull request
 
-    5.1 Use the url from the terminal
+    6.1 Use the url from the terminal
 
     ```bash
     remote: Create a pull request for 'issue-2' on GitHub by visiting:
     remote:      https://github.com/........................
     ```
 
-    5.2 If you're haveing problem finding the url
+    6.2 If you're having problem finding the url
 
         a) https://github.com/lifeparticle/dhushor/pulls
 
