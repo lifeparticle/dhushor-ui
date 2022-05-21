@@ -32,7 +32,7 @@ class UnsplashApi {
 	clientId = "";
 
 	getImage = async (query: string, page?: number) => {
-		const url = `https://dhushor-985rkpuxo-lifeparticle.vercel.app/api/index?name=unsplash&page=${page}&query=${query}`;
+		const url = `https://dhushor-api-kappa.vercel.app/api/index?name=unsplash&page=${page}&query=${query}`;
 		const res = await httpGet(url);
 		total = res.total;
 		return res.results;

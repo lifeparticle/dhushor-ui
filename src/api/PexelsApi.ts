@@ -17,7 +17,7 @@ export let total_results = 0;
 
 class PexelsApi {
 	getImage = async (query: string, page?: number) => {
-		const url = `https://dhushor-985rkpuxo-lifeparticle.vercel.app/api/index?name=pexels&page=${page}&query=${query}`;
+		const url = `https://dhushor-api-kappa.vercel.app/api/index?name=pexels&page=${page}&query=${query}`;
 		const res = await httpGet(url);
 		total_results = res.total_results;
 		return res.photos;
