@@ -71,6 +71,7 @@ export const CaseConverter: React.FC = () => {
 						onSearch={handleSearch}
 					>
 						<Search
+							data-testid="topicSearch"
 							size="large"
 							placeholder="Search Topics, E.g. Programming"
 							enterButton
